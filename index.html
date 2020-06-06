@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style/style.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar bg-dark">
+        <h1 class="text-light">
+        Weather Dashboard
+        </h1>
+    </nav>
+    <!-- container for entire website -->
+    <div class="container body-container row">
+        <div class="col-4 bg-light  h-100">
+            <!-- container for left aside city search -->
+            <div class="container " id="left-aside">
+            
+                <div class="row">
+                    <h4>Search for a City:</h4>
+                </div>
+                <div class="row">
+                    <form class="form-inline">
+                        <div class="form-group mx-sm-3 mb-2">
+                        <label for="city" class="sr-only"></label>
+                        <input type="text" class="form-control" id="city" placeholder="Enter a City">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </form>
+                </div>
+                <!-- row for showing search history -->
+                <div class="row" id="history">
+                    <ul class="w-100">
+                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Atlanta</button></li>
+                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Salt Lake City</button></li>
+                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Anaheim</button></li>
+                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">New York City</button></li>
+                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Chicago</button></li>
+                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Orlando</button></li>
+                    </ul>
+                </div>
+            </div>    
+        </div>
+        
+        <!-- container for main content on right-->
+       
+        <div class="col-8 border border-light rounded">
+            <div class="container" id="main-content-container">
+                <p>CITY Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis adipisci, dignissimos reprehenderit, placeat enim accusantium aliquid nobis fugiat sequi perspiciatis optio tempore dolore obcaecati, similique temporibus delectus saepe cupiditate doloremque! Laudantium repellat explicabo nobis, impedit placeat maiores accusantium? Fugit, voluptatibus nisi. Id, itaque! Minima porro laboriosam a voluptates molestiae unde, eos consectetur dicta excepturi quae, modi nam tempora odit labore consequatur voluptatem temporibus error rem saepe. Error nobis cum nisi, sapiente commodi mollitia atque et sequi, voluptatem in eligendi deleniti voluptates vitae quia debitis est officia voluptatum. Alias, qui? Totam voluptatum natus molestias consequuntur labore? Quos, necessitatibus? Nesciunt iusto deserunt vero ut dolore odit. Voluptate, laudantium eaque? Error deserunt quos debitis sapiente fuga. Accusantium asperiores odio ipsa molestias, totam ad error dolor illum provident non quo impedit alias adipisci excepturi dignissimos, harum qui deserunt architecto rem quam! Nemo aperiam fugit totam aliquam quos nihil incidunt, harum officiis ab pariatur architecto ipsam! Impedit aliquam necessitatibus harum nostrum ducimus ipsa provident deserunt eum earum expedita qui rerum libero, aspernatur magnam facilis autem recusandae laboriosam doloribus quaerat maiores ex. Possimus laboriosam maxime optio non doloremque, assumenda molestiae aspernatur voluptate neque quasi est distinctio ex, totam officia labore animi accusantium vitae voluptatibus perferendis. Eveniet!</p>
+            </div>          
+       </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
