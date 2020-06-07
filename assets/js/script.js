@@ -1,4 +1,3 @@
-var apiUrlCurrent = "http://api.openweathermap.org/data/2.5/weather?q=Anaheim&units=imperial&appid=b2f5c5fd56830b2ca51bd32529509771"
 var inputEl = document.querySelector("#city")
 var submitButtonEl = document.querySelector("#city-submit")
 
@@ -91,7 +90,6 @@ var fiveDayForcast = function (city) {
             if (response.ok) {
                 response.json()
                     .then(function (data) {
-                        console.log(data);
                         //add the values into their respective html spans
                         $("#date-1").text(moment(data.list[5].dt_txt).format('MMMM Do'));
                         $("#tempday1").text(Math.round(data.list[5].main.temp) + "°");
