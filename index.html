@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar bg-dark">
         <h1 class="text-light">
-        Weather Dashboard
+            Weather Dashboard
         </h1>
     </nav>
     <!-- container for entire website -->
@@ -21,7 +21,7 @@
         <div class="col-4 bg-light  h-100">
             <!-- container for left aside city search -->
             <div class="container " id="left-aside">
-            
+
                 <div class="row">
                     <h4>Search for a City:</h4>
                 </div>
@@ -37,49 +37,95 @@
                 <!-- row for showing search history -->
                 <div class="row" id="history">
                     <ul class="w-100">
-                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Atlanta</button></li>
-                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Salt Lake City</button></li>
-                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Anaheim</button></li>
-                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">New York City</button></li>
-                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Chicago</button></li>
-                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Orlando</button></li>
+                        <li><button type="button"
+                                class="btn btn-outline-secondary text-dark w-100 text-left">Atlanta</button></li>
+                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">Salt Lake
+                                City</button></li>
+                        <li><button type="button"
+                                class="btn btn-outline-secondary text-dark w-100 text-left">Anaheim</button></li>
+                        <li><button type="button" class="btn btn-outline-secondary text-dark w-100 text-left">New York
+                                City</button></li>
+                        <li><button type="button"
+                                class="btn btn-outline-secondary text-dark w-100 text-left">Chicago</button></li>
+                        <li><button type="button"
+                                class="btn btn-outline-secondary text-dark w-100 text-left">Orlando</button></li>
                     </ul>
                 </div>
-            </div>    
+            </div>
         </div>
-        
+
         <!-- container for main content on right-->
-       
-        <div class="col-8"  id="main-content-container">
+
+        <div class="col-8" id="main-content-container">
             <div class="container  border border-secondary rounded" id="default">
-                <div class="row">   
+                <div class="row">
                     <h2 class="font-weight-bold" id="default-city"></h2>&nbsp;&nbsp;
                     <h2 id="default-date"></h2>
                     <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
-                </div>     
+                </div>
                 <p>Temperature: <span id="default-temperature"></span></p>
                 <p>Humidity: <span id="default-humidity"></span></p>
                 <p>Wind Speed: <span id="default-wind-speed"></span></p>
                 <p>UV Index: <span id="default-uv-index"></span></p>
-            </div>          
-            <div class="container">
-                <h3>5-Day Forecast:</h3>
-                <div class="col-2">
-                    <div class="card bg-primary text-light" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Date</h5>
-                           
-                            <p class="card-text">Temp: <span id="tempday1"></span></p>
-                            <p class="card-text">Humidity: <span id="humid"></span></p>
-
+            </div>
+            <div class="container row" id="five-day">
+                <h3 class="col-12 ">5-Day Forecast:</h3>
+                <div class="col">
+                    <div class="card bg-primary text-light w-100">
+                        <div>
+                            <h5 id="date-1">date</h5>
+                            <div id="icon-1"><img id="wicon-1" src="" alt="Weather icon"></div>
+                            <p>Temp: <span id="tempday1"></span></p>
+                            <p>Humidity: <span id="humid-1"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-primary text-light w-100">
+                        <div>
+                            <h5 id="date-2">date</h5>
+                            <div id="icon-2"><img id="wicon-2" src="" alt="Weather icon"></div>
+                            <p>Temp: <span id="tempday2"></span></p>
+                            <p>Humidity: <span id="humid-2"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-primary text-light w-100">
+                        <div>
+                            <h5 id="date-3">date</h5>
+                            <div id="icon-3"><img id="wicon-3" src="" alt="Weather icon"></div>
+                            <p>Temp: <span id="tempday3"></span></p>
+                            <p>Humidity: <span id="humid-3"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-primary text-light w-100">
+                        <div>
+                            <h5 id="date-4">date</h5>
+                            <div id="icon-4"><img id="wicon-4" src="" alt="Weather icon"></div>
+                            <p>Temp: <span id="tempday4"></span></p>
+                            <p>Humidity: <span id="humid-4"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-primary text-light w-100">
+                        <div>
+                            <h5 id="date-5">date</h5>
+                            <div id="icon-5"><img id="wicon-5" src="" alt="Weather icon"></div>
+                            <p>Temp: <span id="tempday5"></span></p>
+                            <p>Humidity: <span id="humid-5"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
-
+        </div>
     </div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js" integrity="sha256-5oApc/wMda1ntIEK4qoWJ4YItnV4fBHMwywunj8gPqc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"
+        integrity="sha256-5oApc/wMda1ntIEK4qoWJ4YItnV4fBHMwywunj8gPqc=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

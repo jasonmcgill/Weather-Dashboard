@@ -3,7 +3,7 @@ var inputEl = document.querySelector("#city")
 var submitButtonEl = document.querySelector("#city-submit")
 
 
-//using visitors IP it looks up the city it belongs to 
+//using visitors IP it looks up the city it belongs to
 var localIp = function () {
     getUserIp = "https://json.geoiplookup.io/"
 
@@ -41,7 +41,7 @@ var currentWeather = function (city) {
                         $("#default-city").text(data.city.name);
                         $("#default-date").text(moment().format('MMMM Do, YYYY'));
                         $("#default-temperature").text(Math.round(data.list[0].main.temp) + "°");
-                        $("#default-humidity").text(data.list[0].main.humidity);
+                        $("#default-humidity").text(data.list[0].main.humidity + "%");
                         $("#default-wind-speed").text(data.list[0].wind.speed);
                         //adds the icon
                         var iconcode = data.list[0].weather[0].icon;
@@ -92,8 +92,53 @@ var fiveDayForcast = function (city) {
                 response.json()
                     .then(function (data) {
                         console.log(data);
+                        //add the values into their respective html spans
+                        $("#date-1").text(moment(data.list[5].dt_txt).format('MMMM Do'));
+                        $("#tempday1").text(Math.round(data.list[5].main.temp) + "°");
+                        $("#humid-1").text(data.list[5].main.humidity + "%");                        
+                        //adds the icon
+                        var iconcode = data.list[5].weather[0].icon;
+                        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                        $('#wicon-1').attr('src', iconurl);
+
+                        // day 2
+                        $("#date-2").text(moment(data.list[13].dt_txt).format('MMMM Do'));
+                        $("#tempday2").text(Math.round(data.list[13].main.temp) + "°");
+                        $("#humid-2").text(data.list[13].main.humidity + "%");                        
+                        //adds the icon
+                        var iconcode = data.list[13].weather[0].icon;
+                        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                        $('#wicon-2').attr('src', iconurl);
+
+                        // day 3
+                        $("#date-3").text(moment(data.list[21].dt_txt).format('MMMM Do'));
+                        $("#tempday3").text(Math.round(data.list[21].main.temp) + "°");
+                        $("#humid-3").text(data.list[21].main.humidity + "%");                        
+                        //adds the icon
+                        var iconcode = data.list[21].weather[0].icon;
+                        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                        $('#wicon-3').attr('src', iconurl);
+
+                        // day 4
+                        $("#date-4").text(moment(data.list[29].dt_txt).format('MMMM Do'));
+                        $("#tempday4").text(Math.round(data.list[29].main.temp) + "°");
+                        $("#humid-4").text(data.list[29].main.humidity + "%");                        
+                        //adds the icon
+                        var iconcode = data.list[29].weather[0].icon;
+                        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                        $('#wicon-4').attr('src', iconurl);
+
+                        // day 5
+                        $("#date-5").text(moment(data.list[37].dt_txt).format('MMMM Do'));
+                        $("#tempday5").text(Math.round(data.list[37].main.temp) + "°");
+                        $("#humid-5").text(data.list[37].main.humidity + "%");                        
+                        //adds the icon
+                        var iconcode = data.list[37].weather[0].icon;
+                        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                        $('#wicon-5').attr('src', iconurl);
+
                     })
-                // append data to 5 day forcast container
+                
             }
         });
 };
