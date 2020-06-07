@@ -14,3 +14,7 @@ li {
 ul {
     padding: 0px;
 }
+
+#main-content-container {
+    padding: 20px;
+}

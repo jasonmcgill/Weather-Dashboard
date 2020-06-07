@@ -28,10 +28,10 @@
                 <div class="row">
                     <form class="form-inline">
                         <div class="form-group mx-sm-3 mb-2">
-                        <label for="city" class="sr-only"></label>
-                        <input type="text" class="form-control" id="city" placeholder="Enter a City">
+                            <label for="city" class="sr-only"></label>
+                            <input type="text" class="form-control" id="city" placeholder="Enter a City">
                         </div>
-                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                        <button type="submit" class="btn btn-primary mb-2" id="city-submit">Submit</button>
                     </form>
                 </div>
                 <!-- row for showing search history -->
@@ -50,11 +50,28 @@
         
         <!-- container for main content on right-->
        
-        <div class="col-8 border border-light rounded">
-            <div class="container" id="main-content-container">
-                <p>CITY Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis adipisci, dignissimos reprehenderit, placeat enim accusantium aliquid nobis fugiat sequi perspiciatis optio tempore dolore obcaecati, similique temporibus delectus saepe cupiditate doloremque! Laudantium repellat explicabo nobis, impedit placeat maiores accusantium? Fugit, voluptatibus nisi. Id, itaque! Minima porro laboriosam a voluptates molestiae unde, eos consectetur dicta excepturi quae, modi nam tempora odit labore consequatur voluptatem temporibus error rem saepe. Error nobis cum nisi, sapiente commodi mollitia atque et sequi, voluptatem in eligendi deleniti voluptates vitae quia debitis est officia voluptatum. Alias, qui? Totam voluptatum natus molestias consequuntur labore? Quos, necessitatibus? Nesciunt iusto deserunt vero ut dolore odit. Voluptate, laudantium eaque? Error deserunt quos debitis sapiente fuga. Accusantium asperiores odio ipsa molestias, totam ad error dolor illum provident non quo impedit alias adipisci excepturi dignissimos, harum qui deserunt architecto rem quam! Nemo aperiam fugit totam aliquam quos nihil incidunt, harum officiis ab pariatur architecto ipsam! Impedit aliquam necessitatibus harum nostrum ducimus ipsa provident deserunt eum earum expedita qui rerum libero, aspernatur magnam facilis autem recusandae laboriosam doloribus quaerat maiores ex. Possimus laboriosam maxime optio non doloremque, assumenda molestiae aspernatur voluptate neque quasi est distinctio ex, totam officia labore animi accusantium vitae voluptatibus perferendis. Eveniet!</p>
+        <div class="col-8"  id="main-content-container">
+            <div class="container  border border-secondary rounded">
+                <h2>Atlanta (06/06/2020)</h2>
+                <p>Temperature: <span id="temperature"></span></p>
+                <p>Humidity: <span id="humidity"></span></p>
+                <p>Wind Speed: <span id="wind-speed"></span></p>
+                <p>UV Index: <span id="uv-index"></span></p>
             </div>          
-       </div>
+            <div class="container">
+                <h3>5-Day Forecast:</h3>
+                <div class="col-2">
+                    <div class="card bg-primary text-light" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Date</h5>
+                           
+                            <p class="card-text">Temp: <span id="tempday1"></span></p>
+                            <p class="card-text">Humidity: <span id="humid"></span></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     </div>
 
