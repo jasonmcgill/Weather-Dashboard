@@ -51,12 +51,16 @@
         <!-- container for main content on right-->
        
         <div class="col-8"  id="main-content-container">
-            <div class="container  border border-secondary rounded">
-                <h2>Atlanta (06/06/2020)</h2>
-                <p>Temperature: <span id="temperature"></span></p>
-                <p>Humidity: <span id="humidity"></span></p>
-                <p>Wind Speed: <span id="wind-speed"></span></p>
-                <p>UV Index: <span id="uv-index"></span></p>
+            <div class="container  border border-secondary rounded" id="default">
+                <div class="row">   
+                    <h2 class="font-weight-bold" id="default-city"></h2>&nbsp;&nbsp;
+                    <h2 id="default-date"></h2>
+                    <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
+                </div>     
+                <p>Temperature: <span id="default-temperature"></span></p>
+                <p>Humidity: <span id="default-humidity"></span></p>
+                <p>Wind Speed: <span id="default-wind-speed"></span></p>
+                <p>UV Index: <span id="default-uv-index"></span></p>
             </div>          
             <div class="container">
                 <h3>5-Day Forecast:</h3>
@@ -74,7 +78,8 @@
             </div>
 
     </div>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js" integrity="sha256-5oApc/wMda1ntIEK4qoWJ4YItnV4fBHMwywunj8gPqc=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
