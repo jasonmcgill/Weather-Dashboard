@@ -27,7 +27,7 @@ var localIp = function () {
 
 //handler for fetching current weather with city info passed from buttonClickHandler
 var currentWeather = function (city) {
-    var apiUrl5Day = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&apikey=b2f5c5fd56830b2ca51bd32529509771"
+    var apiUrl5Day = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&apikey=b2f5c5fd56830b2ca51bd32529509771"
 
     fetch(apiUrl5Day)
         .then(function (response) {
@@ -86,7 +86,7 @@ var currentWeather = function (city) {
 
 var fiveDayForcast = function (city) {
     // fetch apiUrl5Day
-    var apiUrl5Day = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&apikey=b2f5c5fd56830b2ca51bd32529509771"
+    var apiUrl5Day = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&apikey=b2f5c5fd56830b2ca51bd32529509771"
 
     fetch(apiUrl5Day)
         .then(function (response) {
