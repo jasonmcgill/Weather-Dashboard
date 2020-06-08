@@ -14,8 +14,10 @@ var localIp = function () {
                 //parse data for JSON payload
                 response.json()
                     .then(function (data) {
+                        
                         //displays current weather with the city from the JSON payload
                         currentWeather(data.city);
+                        
                     })
             } else {
                 alert("Error: " + response.statusText);
@@ -49,26 +51,37 @@ var currentWeather = function (city) {
                         //new api that has UV index, contatenated with latitude and longitude from previus fetch
                         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + data.city.coord.lat + "&lon=" + data.city.coord.lon + "&apikey=b2f5c5fd56830b2ca51bd32529509771")
                             .then(function (response) {
-                                response.json()
-                                    .then(function (data) {
-                                        //depending on the UV index display background color of how favorable it is
-                                        if (data.current.uvi <= 3) {
-                                            $("#default-uv-index").text(data.current.uvi);
-                                            $("#default-uv-index").addClass("text-white bg-success")
-                                            $("#default-uv-index").removeClass("bg-warning bg-danger")
-                                        }
-                                        if (data.current.uvi > 4 && data.current.uvi < 7) {
-                                            $("#default-uv-index").text(data.current.uvi);
-                                            $("#default-uv-index").addClass("text-white bg-warning")
-                                            $("#default-uv-index").removeClass("bg-success bg-danger")
-                                        }
-                                        if (data.current.uvi > 8) {
-                                            $("#default-uv-index").text(data.current.uvi);
-                                            $("#default-uv-index").addClass("text-white bg-danger");
-                                            $("#default-uv-index").removeClass("bg-success bg-warning")
-                                        }
+                                if (response.ok) {
+                                    response.json()
+                                        .then(function (data) {
+                                            
+                                            //depending on the UV index display background color of how favorable it is
+                                            if (data.current.uvi <= 3) {
+                                                $("#default-uv-index").text(data.current.uvi);
+                                                $("#default-uv-index").removeClass("bg-warning")
+                                                $("#default-uv-index").removeClass("bg-danger")
+                                                $("#default-uv-index").addClass("text-white bg-success")                                                
+                                            }
+                                            
+                                            if (data.current.uvi > 4 && data.current.uvi < 8) {
+                                                $("#default-uv-index").text(data.current.uvi);
+                                                $("#default-uv-index").removeClass("bg-success")
+                                                $("#default-uv-index").removeClass("bg-danger")
+                                                $("#default-uv-index").addClass("text-white bg-warning")                                            
+                                            }
+                                            
+                                            if (data.current.uvi >= 8) {
+                                                $("#default-uv-index").text(data.current.uvi);
+                                                $("#default-uv-index").removeClass("bg-success")
+                                                $("#default-uv-index").removeClass("bg-warning")
+                                                $("#default-uv-index").addClass("text-white bg-danger");                                                
+                                            }
+                                            
 
-                                    });
+                                        });
+                                } else {
+                                    alert("Error: " + response.statusText);
+                                }
                             });
                         //save city after verifying it got a good response
                         saveCity(city);
