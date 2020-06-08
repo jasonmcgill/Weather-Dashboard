@@ -2,6 +2,7 @@ var inputEl = document.querySelector("#city")
 var submitButtonEl = document.querySelector("#city-submit")
 
 
+
 //using visitors IP it looks up the city it belongs to
 var localIp = function () {
     getUserIp = "https://json.geoiplookup.io/"
@@ -13,11 +14,9 @@ var localIp = function () {
                 //parse data for JSON payload
                 response.json()
                     .then(function (data) {
-                            //displays current weather with the city from the JSON payload
-                            currentWeather(data.city);
-                        }
-
-                    )
+                        //displays current weather with the city from the JSON payload
+                        currentWeather(data.city);
+                    })
             } else {
                 alert("Error: " + response.statusText);
             }
@@ -68,6 +67,8 @@ var currentWeather = function (city) {
 
                                     });
                             });
+                        //save city after verifying it got a good response
+                        saveCity(city);
                     });
                 //if we get error from server display their error
             } else {
@@ -81,6 +82,8 @@ var currentWeather = function (city) {
 
     fiveDayForcast(city);
 }
+
+
 var fiveDayForcast = function (city) {
     // fetch apiUrl5Day
     var apiUrl5Day = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&apikey=b2f5c5fd56830b2ca51bd32529509771"
@@ -93,7 +96,7 @@ var fiveDayForcast = function (city) {
                         //add the values into their respective html spans
                         $("#date-1").text(moment(data.list[5].dt_txt).format('MMMM Do'));
                         $("#tempday1").text(Math.round(data.list[5].main.temp) + "°");
-                        $("#humid-1").text(data.list[5].main.humidity + "%");                        
+                        $("#humid-1").text(data.list[5].main.humidity + "%");
                         //adds the icon
                         var iconcode = data.list[5].weather[0].icon;
                         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
@@ -102,7 +105,7 @@ var fiveDayForcast = function (city) {
                         // day 2
                         $("#date-2").text(moment(data.list[13].dt_txt).format('MMMM Do'));
                         $("#tempday2").text(Math.round(data.list[13].main.temp) + "°");
-                        $("#humid-2").text(data.list[13].main.humidity + "%");                        
+                        $("#humid-2").text(data.list[13].main.humidity + "%");
                         //adds the icon
                         var iconcode = data.list[13].weather[0].icon;
                         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
@@ -111,7 +114,7 @@ var fiveDayForcast = function (city) {
                         // day 3
                         $("#date-3").text(moment(data.list[21].dt_txt).format('MMMM Do'));
                         $("#tempday3").text(Math.round(data.list[21].main.temp) + "°");
-                        $("#humid-3").text(data.list[21].main.humidity + "%");                        
+                        $("#humid-3").text(data.list[21].main.humidity + "%");
                         //adds the icon
                         var iconcode = data.list[21].weather[0].icon;
                         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
@@ -120,7 +123,7 @@ var fiveDayForcast = function (city) {
                         // day 4
                         $("#date-4").text(moment(data.list[29].dt_txt).format('MMMM Do'));
                         $("#tempday4").text(Math.round(data.list[29].main.temp) + "°");
-                        $("#humid-4").text(data.list[29].main.humidity + "%");                        
+                        $("#humid-4").text(data.list[29].main.humidity + "%");
                         //adds the icon
                         var iconcode = data.list[29].weather[0].icon;
                         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
@@ -129,30 +132,79 @@ var fiveDayForcast = function (city) {
                         // day 5
                         $("#date-5").text(moment(data.list[37].dt_txt).format('MMMM Do'));
                         $("#tempday5").text(Math.round(data.list[37].main.temp) + "°");
-                        $("#humid-5").text(data.list[37].main.humidity + "%");                        
+                        $("#humid-5").text(data.list[37].main.humidity + "%");
                         //adds the icon
                         var iconcode = data.list[37].weather[0].icon;
                         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
                         $('#wicon-5').attr('src', iconurl);
 
                     })
-                
+
             }
         });
 };
 
 
 
-//save city to local storage
-//put cities an array
-//set array in local
 
-// getCityHistory()
-//get array from local
-//parse array
-//append items
+var saveCity = function (city) {
+    if (!localStorage.getItem("city")) {
+        var cityArray = [];
+        cityArray.push(city.toUpperCase());
+        localStorage.setItem("city", JSON.stringify(cityArray))
+    } else {
+        var cityArray = JSON.parse(localStorage.getItem("city"))
+        if (cityArray.indexOf(city.toUpperCase()) === -1) {
+            cityArray.push(city.toUpperCase());
+            localStorage.setItem("city", JSON.stringify(cityArray))
+        }
+    }
+    //display city array 
+    getCityHistory();
+};
 
-// getCityHistory();
+
+var getCityHistory = function () {
+    //get array from local
+    var fullArray = JSON.parse(localStorage.getItem("city"));
+    //grab the blank UL HTML element 
+    var historyEl = document.querySelector("#history-list")
+    //clear it before adding anything
+    historyEl.innerHTML = "";
+    //loop through the local storage array
+    for (var i = 0; i < fullArray.length; i++) {
+        //create li element
+        var listItemEl = document.createElement("li");
+        //create button element
+        var listButtonEl = document.createElement("button");
+        //sets button class
+        listButtonEl.className = "btn btn-lg btn-outline-secondary text-dark w-100 text-left";
+        //sets button text to city from local storage
+        listButtonEl.textContent = titleize(fullArray[i]);
+        //appends button to li
+        listItemEl.appendChild(listButtonEl);
+        //appends li to ul
+        historyEl.appendChild(listItemEl);
+        // make button clickable
+        listButtonEl.addEventListener("click", currentWeather.bind(null, fullArray[i]));
+
+
+    }
+
+}
+
+//makes sentences pretty credit:CSKEVINT (https://gist.github.com/cskevint/5817477)
+function titleize(sentence) {
+    if (!sentence.split) return sentence;
+    var _titleizeWord = function (string) {
+            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        },
+        result = [];
+    sentence.split(" ").forEach(function (w) {
+        result.push(_titleizeWord(w));
+    });
+    return result.join(" ");
+}
 
 
 var buttonClickHandler = function (event) {
@@ -169,5 +221,5 @@ $(submitButtonEl).on("click", function () {
     buttonClickHandler(inputEl);
 });
 
-
+// getCityHistory();
 localIp();
