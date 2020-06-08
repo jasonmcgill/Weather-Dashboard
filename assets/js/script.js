@@ -55,14 +55,17 @@ var currentWeather = function (city) {
                                         if (data.current.uvi <= 3) {
                                             $("#default-uv-index").text(data.current.uvi);
                                             $("#default-uv-index").addClass("text-white bg-success")
+                                            $("#default-uv-index").removeClass("bg-warning bg-danger")
                                         }
                                         if (data.current.uvi > 4 && data.current.uvi < 7) {
                                             $("#default-uv-index").text(data.current.uvi);
                                             $("#default-uv-index").addClass("text-white bg-warning")
+                                            $("#default-uv-index").removeClass("bg-success bg-danger")
                                         }
                                         if (data.current.uvi > 8) {
                                             $("#default-uv-index").text(data.current.uvi);
                                             $("#default-uv-index").addClass("text-white bg-danger");
+                                            $("#default-uv-index").removeClass("bg-success bg-warning")
                                         }
 
                                     });
